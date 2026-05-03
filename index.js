@@ -29,6 +29,12 @@ app.get('/trips', async (req, res) => {
 
 app.post('/trips', async (req, res) => {
     const { destination, start_date, end_date, budget } = req.body;
+
+    // VALIDATION: Reject if fields are empty
+    if (!destination || !start_date || !end_date || !budget) {
+        return res.status(400).json({ error: "All fields are required!" });
+    }
+
     try {
         const result = await pool.query(
             'INSERT INTO trips (destination, start_date, end_date, budget) VALUES ($1, $2, $3, $4) RETURNING *',
@@ -53,6 +59,12 @@ app.get('/trips/:id', async (req, res) => {
 app.put('/trips/:id', async (req, res) => {
     const { id } = req.params;
     const { destination, start_date, end_date, budget } = req.body;
+
+    // VALIDATION: Reject if fields are empty
+    if (!destination || !start_date || !end_date || !budget) {
+        return res.status(400).json({ error: "All fields are required!" });
+    }
+
     try {
         await pool.query(
             'UPDATE trips SET destination=$1, start_date=$2, end_date=$3, budget=$4 WHERE id=$5',
