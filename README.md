@@ -1,4 +1,4 @@
-# Travel Planner
+# Travel Planner - Backend
 
 ## Project Description
 The **Travel Planner** is a comprehensive full-stack web application designed to help users organize upcoming trips, manage travel budgets, and track individual savings goals. This project demonstrates a complete integration of a frontend interface, a RESTful API backend, and a persistent PostgreSQL database, fulfilling the requirements for the Adnexio Software Engineering Final Project.
