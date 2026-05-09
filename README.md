@@ -33,14 +33,18 @@ Click the link below to watch the full walkthrough of the application, features,
 ---
 
 ## 📂 Project Structure
-The backend is organized into a clean, modular structure for better maintainability:
+The backend follows a straightforward, single-level structure for simplicity and maintainability:
 
     backend/
-    ├── db/             # Database connection and pool configuration
-    ├── routes/         # API route definitions
-    ├── .env            # Environment variables (Internal use only)
-    ├── server.js       # Main entry point and Express middleware setup
-    └── package.json    # Project dependencies and start scripts
+    ├── node_modules/           # Project dependencies
+    ├── .env                    # Environment variables (Internal use only)
+    ├── .gitignore              # Files to be ignored by Git
+    ├── database-schema.png     # Visual representation of the database tables
+    ├── db.js                   # Database connection and pool configuration
+    ├── index.js                # Main entry point, middleware, and API route definitions
+    ├── package-lock.json       # Exact versions of installed dependencies
+    ├── package.json            # Project metadata, scripts, and dependencies list
+    └── README.md               # Backend documentation
 
 ---
 
