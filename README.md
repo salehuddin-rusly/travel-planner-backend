@@ -1,60 +1,92 @@
-# Travel Planner - Backend
+# Travel Planner - Backend (Final Project)
 
-## Project Description
-The **Travel Planner** is a comprehensive full-stack web application designed to help users organize upcoming trips, manage travel budgets, and track individual savings goals. This project demonstrates a complete integration of a frontend interface, a RESTful API backend, and a persistent PostgreSQL database, fulfilling the requirements for the Adnexio Software Engineering Final Project.
+This is the backend API for the Travel Planner project, built as part of the **Adnexio Software Engineering Final Project**. It handles data persistence, RESTful routing, and server-side validation for the application.
 
-## Deployment Links
-*   **Live Website:** [https://travel-planner-frontend-2z3i.onrender.com](https://travel-planner-frontend-2z3i.onrender.com)
-*   **Backend API:** [https://travel-planner-api-ao35.onrender.com](https://travel-planner-api-ao35.onrender.com)
+---
 
-## Features Implemented
-*   **Full CRUD Operations:** Create, Read, Update, and Delete travel itineraries seamlessly.
-*   **Dynamic Status Badges:** Automatically categorizes trips as **Upcoming**, **Ongoing**, or **Completed** based on the current system date.
-*   **Search & Filtering:** Real-time search by destination and multi-criteria sorting (Soonest Date, Budget High-to-Low, Budget Low-to-High).
-*   **Trip Details & Savings Tracker:** Individual detail pages for each trip featuring a "Tabung" (savings goal) progress bar utilizing LocalStorage.
-*   **Backend Validation:** Server-side validation implemented to prevent empty or incomplete data submissions, ensuring data integrity.
+## 📺 Project Demonstration
+Click the link below to watch the full walkthrough of the application, features, and technical implementation:
 
-## Tech Stack Used
-*   **Frontend:** HTML5, CSS3, Vanilla JavaScript
-*   **Backend:** Node.js, Express.js
-*   **Database:** PostgreSQL (Hosted on Render)
-*   **Tools:** REST API, CORS, dotenv, LocalStorage
+**[Watch the Presentation Video on YouTube](https://youtu.be/8FNqd_3UPyw)**
 
-## Database Schema
-The system uses a relational database with a `trips` table structured as follows:
-*   `id`: SERIAL (Primary Key)
-*   `destination`: VARCHAR(255) (Not Null)
-*   `start_date`: DATE (Not Null)
-*   `end_date`: DATE (Not Null)
-*   `budget`: NUMERIC(10, 2) (Not Null)
+---
 
-## Setup Instructions & How to Run Locally
+## 🚀 Live Links
+* **Backend API (Live):** https://travel-planner-api-ao35.onrender.com
+* **Live Website (Frontend):** https://travel-planner-frontend-2z3i.onrender.com
+
+---
+
+## ✨ Features Implemented
+* **Full CRUD Operations:** Comprehensive RESTful endpoints to Create, Read, Update, and Delete travel data.
+* **Robust Error Handling:** Implementation of try-catch blocks and appropriate HTTP status codes (200, 201, 400, 404, 500) to ensure API reliability.
+* **Server-Side Validation:** Ensures all incoming requests contain valid and complete data before interacting with the database.
+* **CORS Configuration:** Configured to allow secure cross-origin communication between the Render-hosted frontend and backend.
+* **Environment Management:** Sensitive credentials and database connection strings are managed securely via `dotenv`.
+
+## 🛠️ Tech Stack Used
+* **Runtime:** Node.js
+* **Framework:** Express.js
+* **Database:** PostgreSQL (Managed instance on Render)
+* **Libraries:** `pg` (node-postgres), `cors`, `dotenv`, `nodemon` (development)
+
+---
+
+## 📂 Project Structure
+The backend is organized into a clean, modular structure for better maintainability:
+
+    backend/
+    ├── db/             # Database connection and pool configuration
+    ├── routes/         # API route definitions
+    ├── .env            # Environment variables (Internal use only)
+    ├── server.js       # Main entry point and Express middleware setup
+    └── package.json    # Project dependencies and start scripts
+
+---
+
+## 📊 Database Schema
+The application utilizes a relational PostgreSQL database with a `trips` table:
+
+| Column | Data Type | Constraints |
+| :--- | :--- | :--- |
+| `id` | SERIAL | Primary Key |
+| `destination` | VARCHAR(255) | NOT NULL |
+| `start_date` | DATE | NOT NULL |
+| `end_date` | DATE | NOT NULL |
+| `budget` | NUMERIC(10, 2) | NOT NULL |
+
+---
+
+## 💻 Setup Instructions & Local Development
 
 ### Prerequisites
-*   Node.js installed
-*   PostgreSQL installed and running
+* Node.js (v14 or higher)
+* PostgreSQL instance
 
-### Backend Setup
-1.  Navigate to the `backend` directory.
-2.  Run `npm install` to install dependencies (express, cors, pg, dotenv).
-3.  Configure your `.env` file with your database credentials.
-4.  Run `npm start` to start the server at `http://localhost:10000`.
+### Local Installation
+1. Navigate to the `backend` directory.
+2. Install dependencies:
+       npm install
+3. Create a `.env` file in the root folder and configure your credentials:
+       DATABASE_URL=your_postgresql_connection_string
+       PORT=10000
+4. Start the server:
+       npm start
 
-### Frontend Setup
-1.  Navigate to the `frontend` directory.
-2.  Update the `API_URL` in `script.js` to point to your local backend.
-3.  Open `index.html` in your web browser (or use VS Code Live Server).
+---
 
-## API Endpoint Summary
+## 📡 API Endpoint Summary
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/trips` | Retrieve all trips sorted by date |
 | `GET` | `/trips/:id` | Retrieve details for a specific trip |
-| `POST` | `/trips` | Create a new trip (requires validation) |
+| `POST` | `/trips` | Create a new trip itinerary |
 | `PUT` | `/trips/:id` | Update an existing trip by ID |
 | `DELETE` | `/trips/:id` | Remove a trip from the database |
 
-## Developer Information
-*   **Developer:** Salehuddin Al-Ayyubi (Hud)
-*   **Program:** Adnexio Software Engineering Conversion Bootcamp
-*   **Submission Deadline:** May 9, 2026
+---
+
+## 👤 Developer Information
+* **Developer:** Salehuddin Al-Ayyubi (Hud)
+* **Program:** Adnexio Software Engineering Conversion Bootcamp
+* **Submission Deadline:** May 9, 2026
